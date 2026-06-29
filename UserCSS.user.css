@@ -217,18 +217,18 @@
     .infobox-section-labels li.label-active { /* Top tab edits */
         background: transparent;
         border: none;
-        box-shadow: inset 0 -3px 0 -1px #3790bb !important;
+        border-bottom: 3px solid;
+        border-image: linear-gradient(to right, transparent 1em, #3790bb 1em, #3790bb calc(100% - 1em), transparent calc(100% - 1em)) 1;
         color: #ffffff;
         font-weight: bold;
     }
     .infobox-section-labels li {
         color: #a9a9a9;
-        margin-left: 1em;
-        margin-right: 1em;
         width: 1px;
+        box-shadow: none !important;
+        transition: none;
     }
     .infobox-section-labels li:hover {
-        box-shadow: none;
         color: #ffffff;
     }
     /* ▂▂▄▄▆▆██▓▒░ Navigation Table Edits ░▒▓██▆▆▄▄▂▂ */
@@ -437,7 +437,7 @@
         top: 2px;
         background: none;
     }
-    /* ▂▂▄▄▆▆██▓▒░ Main Content Edits ░▒▓██▆▆▄▄▂▂ */
+    /* ▂▂▄▄▆▆██▓▒░ Main Content/Misc. Edits ░▒▓██▆▆▄▄▂▂ */
     .mw-body {
         border-width: 0px;
         border-radius: 0px
@@ -464,7 +464,7 @@
         /* Font edits */
         font-size: 0.875rem;
     }
-    .mw-content-ltr > figure { /* Image boxes */
+    figure[typeof~="mw:File/Thumb"] { /* Image boxes */
         background: #202122 !important;
     }
     .mwe-popups .mwe-popups-container { /* Link popout */
@@ -488,5 +488,19 @@
     }
     .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button { /* Selection box dropdown arrow */
         background: #2b2f39
+    }
+    .textsection-boxed { /* Chat message quote */
+        border-radius: 0px;
+        border: 1px solid var(--border-color-base)
+    }
+    .mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle, .mw-rcfilters-ui-itemMenuOptionWidget:hover { /* Filter edits */
+        background: #202122;
+    }
+    .cdx-button:enabled { /* Buttons */
+        background: #27292d;
+    }
+    .cdx-button:enabled:hover {
+        background: #27292d;
+        border-color: #ffffff;
     }
 }
