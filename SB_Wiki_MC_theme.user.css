@@ -1,0 +1,521 @@
+/* ==UserStyle==
+
+@name           Hypixel Skyblock Wiki mc.wiki Theme
+@namespace      https://github.com/SKDemon820
+@version        1.0.0
+@description    Style the Hypixel Skyblock wiki to look like the main Minecraft wiki
+@author         SKDemon
+@license        CC-BY-NC-SA-4.0
+@preprocessor   default
+
+@var select wikiLogo "Main Logo" {
+    "Basic (default)": "url(https://i.imgur.com/B6pByoG.png)",
+    "Basic with border": "url(https://i.imgur.com/YbRXPk5.png)",
+    "Basic with Hypixel logo": "url(https://i.imgur.com/PjUbd6Z.png)",
+    "Basic with Hypixel logo and border": "url(https://i.imgur.com/nHcf1FZ.png)",
+    "Realistic": "url(https://i.imgur.com/44J7EZ0.pngg)",
+    "Realistic with border": "url(https://i.imgur.com/r81D6cC.png)",
+    "Realistic with Hypixel logo": "url(https://i.imgur.com/KYz0OpA.png)",
+    "Realistic with Hypixel logo and border*": "url(https://i.imgur.com/OTd0Iyd.png)",
+}
+
+==/UserStyle== */
+
+@-moz-document url-prefix("https://hypixelskyblock.minecraft.wiki/") {
+    /* ▂▂▄▄▆▆██▓▒░ Colors ░▒▓██▆▆▄▄▂▂ */
+    :root {
+        --background-color-base: #2b2f39 !important; /* Main background */
+        --background-color-neutral: #27292d !important; /* Secondary background (table headers, rows, buttons, etc.) */
+        --color-link: #90c0fe !important; /* Hyperlinks */
+        --color-link--hover: #7e8eff !important; /* Hovered hyperlinks*/
+        --accent-color-base: #3790bb !important; /* Main accent color */
+        --accent-color-light: #57bdee !important; /* Lighter accent color */
+        --accent-color-medium: #27779e !important; /* Darker accent color */
+        --accent-color-dark: #1c5e7e !important; /* Darkest accent color */
+        --darkest-background-element: #202122 !important; /* Darkest elements (Infobox, TOC, etc.) */
+        --infobox-border: #72777d !important; /* Border for infobox rows */
+        --3d-header-main: #1f2528 !important; /* 3D edge of top tabs */
+        --3d-header-left: #171717 !important; /* 3D edge of main content */
+        --footer-background: #232324 !important; /* Background for footer/sidebar/nav/etc. */
+        --footer-border: #313233 !important; /* Border for footer/sidebar/nav/etc. */
+        --footer-link: #bfbfbf !important; /* Hyperlink for footer/sidebar/nav/etc. */
+        --widget-border-main: #404040 !important; /* Border for widgets/messages/etc */
+        --navbox-background-main: #333 !important; /* Background for navbox rows */
+        --navbox-background-header: #181818 !important; /* Background for navbox subheader */
+        --navbox-background-subheader: #222 !important; /* Background for navbox header */
+        --navbox-border-main: #444 !important; /* Border for navbox */
+        --navbox-background-title: #111 !important; /* Background for navbox title */
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Site-wide edits ░▒▓██▆▆▄▄▂▂ */
+    :root, html.skin-theme-clientpref-night {
+        --fontface-content: "Liberation Sans",Arial,Helvetica,FreeSans,sans-serif; /* Font */
+    }
+    body {
+        background-image: url(https://minecraft.wiki/images/Dark-header-background.png?7261a), url(https://minecraft.wiki/images/Dark-background.png?7261a); /* Change background */
+        background-repeat: repeat-x,repeat;
+        background-size: 234px,468px;
+        --toc-bg: var(--darkest-background-element); /* Table of contents background */
+        --vector-tab-background: var(--3d-header-main); /* Inactive top tabs */
+        --vector-tab-background--hover: var(--background-color-base); /* Inactive top tab hover */
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Sidebar/Footer/Options Bar Edits ░▒▓██▆▆▄▄▂▂ */
+    #mw-panel {
+        top: -15px
+    }
+    #mw-panel nav, #footer {
+        /* Backgrounds/border edits */
+        background-color: var(--footer-background);
+        border: 2px black solid;
+        border-radius: 0px;
+        box-shadow: inset 0 0 0 2px var(--footer-border)
+    }
+    #footer {
+        /* Decrease padding */
+        padding: 0.5em 0.75em;
+        /* Make hyperlinks gray */
+        --color-link: var(--footer-link);
+        --color-link--hover: white;
+        margin-right: 10px
+    }
+    #footer-icons {
+        filter:invert(1)
+    }
+    #p-personal ul { /* Options bar padding */
+        padding: 1px 0.5em 1px 0;
+        min-height: 26.8px
+    }
+    div#mw-panel .vector-menu-portal .vector-menu-content li a, div#mw-panel .vector-menu-portal .vector-menu-content li a:visited {
+        /* Change portlet link color */
+        color: var(--footer-link)
+    }
+    #p-personal {
+        background-color: var(--footer-background);
+        border: 2px black solid;
+        border-radius: 0px;
+        box-shadow: inset 0 0 0 2px var(--footer-border);
+        height: unset;
+        top: -10px;
+        right: 5px
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Messagebox/Alert Edits ░▒▓██▆▆▄▄▂▂ */
+    .messagebox {
+        box-shadow: none;
+        border-left: 4px solid var(--box-border-highlight);
+        border-radius: 0px;
+        max-width: 85%;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        margin-top: 1em
+    }
+    .darkmsgbox, .darkmsgbox-text, .darkmsgbox-image {
+        --box-background-highlight: #141414;
+        --custom-adaptive-lighter: #303030;
+        --accent-color-base: var(--widget-border-main);
+        box-shadow: none !important
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Widgetbox edits ░▒▓██▆▆▄▄▂▂ */
+    .widgetbox-header { /* Header border */
+        border-radius: 0px;
+        border-inline: 3px solid #c98304;
+        border-top: 3px solid #f3d40c;
+        border-bottom: 3px solid #925602;
+        margin: 1px 2px 0;
+    }
+    .widgetbox-docktop, .widgetbox-dockbottom { /* Docks */
+        border-radius: 0px;
+        border-inline: 3px solid var(--widget-border-main);
+        margin: 0px 2px 0;
+        background: var(--darkest-background-element)
+    }
+    .widgetbox-dockbottom { /* Re-add border to bottom dock*/
+        border-bottom: 3px solid var(--widget-border-main)
+    }
+    .widgetbox-content { /* Center */
+        border-radius: 0px;
+        border-inline: 3px solid var(--widget-border-main);
+        margin: 0px 2px 0;
+        background: var(--background-color-neutral)
+    }
+    .countdownbox::before { /* Reposition clocks in countdown */
+        top: 7px;
+        left: 7px
+    }
+    .countdownbox::after {
+        bottom: 7px;
+        right: 7px
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Tabber edits ░▒▓██▆▆▄▄▂▂ */
+    .tabber { /* Main element */
+        border: 1px dashed gray;
+        border-radius: 0px;
+    }
+    ul.tabbernav { /* Header border */
+        border-bottom: none
+    }
+    .tabbertab { /* Selected panel white border */
+        border: none !important;
+    }
+    .tabbernav > li.tabberactive, .partialLoad-tabs__tab.selected { /* Tab blue border */
+        border: none
+    }
+    .textsection {
+        border: none;
+    }
+    .dual-table-grid .seperator-cell { /* Thick borders */
+        border-bottom: none
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Calculator edits ░▒▓██▆▆▄▄▂▂ */
+    .mw-parser-output table.jcTable {
+        --calc-label-background: var(--background-color-neutral);
+        --calc-border: var(--infobox-border);
+    }
+    .mw-parser-output table.jcTable .jcLabel {
+        background: var(--darkest-background-element)
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Table of Contents Edits ░▒▓██▆▆▄▄▂▂ */
+    .toc {
+        border: 1px var(--infobox-border) solid
+    }
+    .tocnumber {
+        display: unset
+    }
+    .toc ul ul {
+        border-left: none
+    }
+    .toc .toctitle {
+        background: none;
+        padding: 0em 0em
+    }
+    .toc > ul {
+        /* Remove separator and padding */
+        border-top: none;
+        margin: 0px;
+        padding: 0px
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Infobox Edits ░▒▓██▆▆▄▄▂▂ */
+    .infobox {
+        --infobox-background: var(--darkest-background-element); /* Background */
+        border: 1px solid var(--accent-color-base);
+        border-radius: 0px;
+        --infobox-border-color: none /* Remove left over borders */
+    }
+    .infobox .infobox-title {
+        /* Add bevel */
+        border-inline: 3px solid var(--accent-color-medium);
+        border-top: 3px solid var(--accent-color-light);
+        border-bottom: 3px solid var(--accent-color-dark);
+        border-radius: 0px;
+        margin: 1px 2px 0;
+        text-shadow: 2px 2px 0 var(--accent-color-dark)
+    }
+    .infobox-header {
+        text-shadow: 2px 2px 0 var(--accent-color-dark)
+    }
+    .infobox-row-container {
+        /* Make horizontal separators gray */
+        border-top: 1px solid var(--infobox-border);
+        /* Decrease padding in rows */
+        padding: 5px
+    }
+    .infobox .layout-horizontal .infobox-row-container:nth-child(2n of .infobox-row-container) {
+        /* Make vertical separators gray */
+        border-left: 1px solid var(--infobox-border)
+    }
+    .infobox-row-container:nth-child(1 of .infobox-row-container), .infobox .layout-horizontal .infobox-row-container:nth-child(2 of .infobox-row-container){
+        /* Remove borders from under headers */
+        border-top: 1px solid transparent
+    }
+    .infobox-row-container:nth-child(2n of .infobox-row-container):not(.layout-horizontal .infobox-row-container) {
+        /* Add alternating background colors to normal rows */
+        background: var(--background-color-neutral)
+    }
+    .infobox .layout-horizontal .infobox-row-container:nth-child(4n + 4), .infobox .layout-horizontal .infobox-row-container:nth-child(4n + 5) {
+        /* Add alternating background colors to horizontal-layout rows */
+        background: var(--background-color-neutral)
+    }
+    .infobox-section-labels li.label-active { /* Top tab edits */
+        background: linear-gradient(to top, var(--accent-color-base) 3px, transparent 3px) center / calc(100% - 2em) no-repeat;
+        border: none;
+        color: white;
+        -webkit-text-stroke: 0.75px white
+    }
+    .infobox-section-labels li {
+        color: #a9a9a9;
+        box-shadow: none !important;
+        transition: none;
+    }
+    .infobox-section-labels li:hover {
+        color: white;
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Navigation Table Edits ░▒▓██▆▆▄▄▂▂ */
+    .navbox {
+        border: 1px solid var(--navbox-border);
+        background: var(--navbox-background-main);
+        border-radius: 0px;
+        --navbox-list-background: var(--navbox-background-main);
+        --navbox-header-background: var(--navbox-background-subheader);
+        --navbox-title-background: var(--navbox-background-title)
+    }
+    .navbox-header {
+        background: var(--navbox-background-header) !important
+    }
+    .navbox-gutter {
+        background: none !important
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Table Edits ░▒▓██▆▆▄▄▂▂ */
+    .wikitable td {
+        /* Background color */
+        background-color: var(--darkest-background-element);
+    }
+    .mw-parser-output .mcui {
+        /* Minecraft GUI edits */
+        border-radius: 0px;
+        margin: 0px
+    }
+    .button:not(.carousel-arrow), .button:not(.carousel-arrow):hover { /* Brown buttons */
+        background: linear-gradient(to right, white 5px, transparent 5px, transparent calc(100% - 5px), white calc(100% - 5px)), linear-gradient(to right, white 2px, transparent 2px, transparent calc(100% - 2px), white calc(100% - 2px)), linear-gradient(to right, white 5px, transparent 5px, transparent calc(100% - 5px), white calc(100% - 5px));
+        background-repeat: no-repeat;
+        background-size: 100% 2px, 100% calc(100% - 4px), 100% 2px;
+        background-position: top, 0 2px, bottom;
+        outline: none;
+        border: none;
+        border-radius: 0px;
+        padding: 5px;
+        color: var(--color-link)
+    }
+    .button:not(.carousel-arrow):hover {
+        color: var(--color-progressive--hover) !important;
+        text-decoration: underline
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Frontpage Button Edits ░▒▓██▆▆▄▄▂▂ */
+    /* Containing cell */
+    .frontpage-gallery {
+        background: #31353e;
+        border: 2px solid #242424;
+        box-shadow: inset -2px -2px #0000000f,inset 2px 2px #ffffff0d
+    }
+    /* Top part */
+    .frontpage-gallery .mw-default-size {
+        background: #3e414a;
+        box-shadow: inset 0 4px #00000030,inset 0 -4px #ffffff20;
+        border-bottom: 2px solid #242424;
+        transition-duration: .1s;
+        margin-bottom: 6px;
+    }
+    .mw-parser-output .frontpage-gallery .gallery-link div, .mw-parser-output .frontpage-gallery .gallery-link span {
+        width: 100%
+    }
+    /* Bottom part */
+    .mw-parser-output .frontpage-gallery .gallery-link {
+        background: #48494a;
+        border: 2px solid #242424;
+        border-radius: 0px;
+        box-shadow: 0 -6px 0 0 #3b3c3c inset,2px 93px 0 0 rgba(178,178,178,0.5)inset,-2px -8px 0 0 rgba(153,153,153,0.5)inset;
+    }
+    /* Hovered */
+    .mw-parser-output .frontpage-gallery .gallery-link:hover {
+        transform: none;
+        opacity: 1;
+        box-shadow: 0 -6px 0 0 #3b3c3c inset,2px 93px 0 0 rgba(178,178,178,0.5)inset,-2px -8px 0 0 rgba(153,153,153,0.5)inset;
+        background: #5b5c5c;
+    }
+    .frontpage-gallery .mw-default-size:hover {
+        background: #4b4e56
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Frontpage Section Edits ░▒▓██▆▆▄▄▂▂ */
+    .widget-title { /* Colored titles */
+        border-inline: 3px solid var(--accent-color-medium);
+        border-top: 3px solid var(--accent-color-light);
+        border-bottom: 3px solid var(--accent-color-dark);
+        margin: 20px 2px 0 !important;
+        border-radius: 0px !important
+    }
+    .widget-subtitle { /* Blank titles */
+        border-radius: 0px !important;
+    }
+    .sbte-clock { /* Ingame time */
+        border-radius: 0px;
+        border-inline: 3px solid var(--widget-border-main);
+        border-bottom: 3px solid var(--widget-border-main);
+        margin: 0px 2px 0;
+        background: var(--background-color-neutral);
+        position: relative;
+        top: -17.5px
+    }
+    .darkTable-wrapper {
+        background: #31353e;
+        border: 2px solid #242424;
+        box-shadow: inset -2px -2px #0000000f,inset 2px 2px #ffffff0d;
+        border-radius: 0px
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Top Menu Tab Edits ░▒▓██▆▆▄▄▂▂ */
+    #left-navigation, #right-navigation { /* Remove border */
+        border-width: 0px;
+    }
+    :is(#left-navigation, #right-navigation) li:nth-of-type(n) { /* Remove border radius */
+        border-radius: 0px !important;
+        margin-right: 14px /* Separate tabs */
+    }
+    .vector-menu-tabs ul li:not(.selected) { /* Remove shadow */
+        box-shadow: none
+    }
+    :is(#left-navigation, #right-navigation) li, #p-cactions { /* Decrease height */
+        height: 36px;
+    }
+    .vector-menu-tabs-legacy li a, #p-cactions-label { /* Fix text centering */
+        padding-top: .5em
+    }
+    .vector-menu-tabs .mw-watchlink.icon a::before {
+        top: .5em;
+        left: .5em
+    }
+    #mw-head { /* Move header down in line with grass */
+        top: 15px
+    }
+    #content {
+        margin-top: 4px;
+        margin-right: 10px;
+        border-top: 6px solid var(--3d-header-main); /* Top 3d border */
+        border-left: 6px solid var(--3d-header-left); /* Left 3d border */
+    }
+    #content::after { /* Bottom left 3d corner */
+        content: "";
+        position: relative;
+        display: inherit;
+        border-top: 6px solid transparent;
+        border-left: 6px solid #13191c;
+        right: 30px;
+        top: 24px;
+    }
+    #content::before { /* Top right 3d corner */
+        content: "";
+        position: absolute;
+        display: inherit;
+        border-top: 6px solid #4e362b;
+        border-left: 6px solid transparent;
+        right: 10px;
+        top: calc(5em + 4px);
+    }
+    :is(#left-navigation, #p-views) li::before, #p-cactions::before { /* Tab grass top */
+        content: "";
+        display: block;
+        height: 6px;
+        width: 100%;
+        background: url(https://i.imgur.com/hb5k4gx.png) no-repeat right top;
+        background-size: auto 6px
+    }
+    #left-navigation li:first-of-type::after { /* First grass side */
+        background: url(https://i.imgur.com/ide4LbD.png) !important;
+        background-size: 6px 93px !important;
+        height: 93px;
+    }
+    :is(#left-navigation, #p-views) li::after, #p-cactions::after{ /* Tab grass side */
+        content: "";
+        display: block;
+        height: 36px;
+        width: 6px;
+        background: url(https://i.imgur.com/oVqhMj7.png);
+        background-size: 6px 36px;
+        position: relative;
+        right: 6px;
+        top: -6px
+    }
+    #p-cactions::after {
+        top: -39.5px !important
+    }
+    .vector-menu-tabs-legacy ul li, #p-cactions { /* Tab grass front */
+        background: url(https://i.imgur.com/CbkbpUq.png) no-repeat right top 6px / auto 9px, linear-gradient(var(--vector-tab-background) 100%) no-repeat 0px 6px;
+    }
+    .vector-menu-tabs-legacy .selected, .vector-menu-tabs ul li:not(.selected):hover {
+        background: url(https://i.imgur.com/CbkbpUq.png) no-repeat right top 6px / auto 9px, linear-gradient(var(--body-main) 100%) no-repeat 0px 6px
+    }
+    .vector-menu-dropdown .vector-menu-heading { /* Fix background on "more" */
+        background: none;
+        box-shadow: none !important
+    }
+    #right-navigation { /* Move right tabs over to left */
+        margin-right: 35px
+    }
+    #left-navigation { /* Move left tabs over to right */
+        margin-left: calc(11em + 6px)
+    }
+    .vector-search-box-vue input.cdx-text-input__input, .vector-search-box-vue input.cdx-text-input__input:enabled { /* Search bar edits */
+        background: #5e5e5e;
+        border-left: 3px solid #6f6f6f;
+        border-top: 3px solid #959595;
+        border-radius: 0 3px 0 3px;
+        min-height: 0px;
+        height: 30px
+    }
+    #searchform {
+        left: 15px;
+        top: 2px;
+        background: none;
+    }
+    /* ▂▂▄▄▆▆██▓▒░ Main Content/Misc. Edits ░▒▓██▆▆▄▄▂▂ */
+    .mw-body {
+        border-width: 0px;
+        border-radius: 0px
+    }
+    /* Logo */
+    #p-logo .mw-wiki-logo {
+        background-image: var(--wikiLogo) !important;
+    }
+    #p-logo a {
+        height: 75%;
+        width: 75%;
+    }
+    #firstHeading {
+        /* Remove bold title */
+        font-family: 'Linux Libertine','Georgia','Times','Source Serif 4',serif;
+        font-weight: normal;
+        font-size: 1.8em
+    }
+    .wgl-theme-dark .mw-body-content .mw-heading2 {
+        /* Section title background */
+        background-color: transparent
+    }
+    .mw-body-content {
+        /* Font edits */
+        font-size: 0.875rem;
+    }
+    figure[typeof~="mw:File/Thumb"] { /* Image boxes */
+        background: var(--darkest-background-element) !important;
+    }
+    .mwe-popups .mwe-popups-container { /* Link popout */
+        background: #282828
+    }
+    .mwe-popups .mwe-popups-extract[dir="ltr"]::after { /* Fix popout gradient */
+        background-image: linear-gradient(to right,rgba(49,62,89,0),#282828 50%) !important
+    }
+    .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:hover { /* Settings button */
+        background-color: #494B4E
+    }
+    .mw-parser-output .tut-browse li a { /* Tutorial page */
+        border-radius: 0px;
+        background: #31353e;
+        border: 2px solid #242424;
+        box-shadow: inset -2px -2px #0000000f,inset 2px 2px #ffffff0d
+    }
+    .mw-parser-output .tut-browse li a::before {
+        border-radius: 0px;
+        box-shadow: inset -2px -2px #0000000f,inset 2px 2px #ffffff0d
+    }
+    .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button { /* Selection box dropdown arrow */
+        background: var(--background-color-base)
+    }
+    .textsection-boxed { /* Chat message quote */
+        border-radius: 0px;
+        border: 1px solid var(--border-color-base)
+    }
+    .mw-rcfilters-container .mw-rcfilters-ui-filterTagMultiselectWidget.oo-ui-widget-enabled .oo-ui-tagMultiselectWidget-handle, .mw-rcfilters-ui-itemMenuOptionWidget:hover { /* Filter edits */
+        background: var(--darkest-background-element);
+    }
+    .cdx-button:enabled { /* Buttons */
+        background: var(--background-color-neutral);
+    }
+    .cdx-button:enabled:hover {
+        background: var(--background-color-neutral);
+        border-color: #ffffff;
+    }
+}
