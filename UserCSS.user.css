@@ -215,16 +215,13 @@
         background: #27292d
     }
     .infobox-section-labels li.label-active { /* Top tab edits */
-        background: transparent;
+        background: linear-gradient(to top, #3790bb 3px, transparent 3px) center / calc(100% - 2em) no-repeat;
         border: none;
-        border-bottom: 3px solid;
-        border-image: linear-gradient(to right, transparent 1em, #3790bb 1em, #3790bb calc(100% - 1em), transparent calc(100% - 1em)) 1;
         color: #ffffff;
-        font-weight: bold;
+        -webkit-text-stroke: 0.75px #ffffff
     }
     .infobox-section-labels li {
         color: #a9a9a9;
-        width: 1px;
         box-shadow: none !important;
         transition: none;
     }
@@ -304,7 +301,7 @@
         box-shadow: 0 -6px 0 0 #3b3c3c inset,2px 93px 0 0 rgba(178,178,178,0.5)inset,-2px -8px 0 0 rgba(153,153,153,0.5)inset;
         background: #5b5c5c;
     }
-    .mw-default-size:not(.pi-image-thumbnail):hover {
+    .frontpage-gallery .mw-default-size:hover {
         background: #4b4e56
     }
     /* ▂▂▄▄▆▆██▓▒░ Frontpage Section Edits ░▒▓██▆▆▄▄▂▂ */
