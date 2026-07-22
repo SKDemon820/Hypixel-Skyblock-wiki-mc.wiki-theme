@@ -34,8 +34,14 @@
         --accent-color-dark: #1c5e7e !important; /* Darkest accent color */
         --darkest-background-element: #202122 !important; /* Darkest elements (Infobox, TOC, etc.) */
         --infobox-border: #72777d !important; /* Border for infobox rows */
+        --infobox-tab-text: #a9a9a9 !important; /* Text for non-selected infobox section tabs */
         --3d-header-main: #1f2528 !important; /* 3D edge of top tabs */
         --3d-header-left: #171717 !important; /* 3D edge of main content */
+        --3d-header-corner-stone: #13191c !important; /* Bottom left corner of 3d edge of main content */
+        --3d-header-corner-dirt: #4e362b !important; /* Top right corner of 3d edge of main content */
+        --searchbar-background: #5e5e5e !important; /* Background for searchbar */
+        --searchbar-border-left: #6f6f6f !important; /* Left border for searchbar */
+        --searchbar-border-top: #959595 !important; /* Top border for searchbar */
         --footer-background: #232324 !important; /* Background for footer/sidebar/nav/etc. */
         --footer-border: #313233 !important; /* Border for footer/sidebar/nav/etc. */
         --footer-link: #bfbfbf !important; /* Hyperlink for footer/sidebar/nav/etc. */
@@ -45,6 +51,8 @@
         --navbox-background-subheader: #222 !important; /* Background for navbox header */
         --navbox-border-main: #444 !important; /* Border for navbox */
         --navbox-background-title: #111 !important; /* Background for navbox title */
+        --link-popout-background: #282828 !important; /* Background for link popout */
+        --link-popout-settings: #494B4E !important; /* Background for link popout settings icon */
     }
     /* ▂▂▄▄▆▆██▓▒░ Site-wide edits ░▒▓██▆▆▄▄▂▂ */
     :root, html.skin-theme-clientpref-night {
@@ -240,7 +248,7 @@
         -webkit-text-stroke: 0.75px white
     }
     .infobox-section-labels li {
-        color: #a9a9a9;
+        color: var(--infobox-tab-text);
         box-shadow: none !important;
         transition: none;
     }
@@ -383,7 +391,7 @@
         position: relative;
         display: inherit;
         border-top: 6px solid transparent;
-        border-left: 6px solid #13191c;
+        border-left: 6px solid var(--3d-header-stone);
         right: 30px;
         top: 24px;
     }
@@ -391,7 +399,7 @@
         content: "";
         position: absolute;
         display: inherit;
-        border-top: 6px solid #4e362b;
+        border-top: 6px solid var(--3d-header-corner-dirt);
         border-left: 6px solid transparent;
         right: 10px;
         top: calc(5em + 4px);
@@ -440,9 +448,9 @@
         margin-left: calc(11em + 6px)
     }
     .vector-search-box-vue input.cdx-text-input__input, .vector-search-box-vue input.cdx-text-input__input:enabled { /* Search bar edits */
-        background: #5e5e5e;
-        border-left: 3px solid #6f6f6f;
-        border-top: 3px solid #959595;
+        background: var(--searchbar-background);
+        border-left: 3px solid var(--searchbar-border-left);
+        border-top: 3px solid var(--searchbar-border-top);
         border-radius: 0 3px 0 3px;
         min-height: 0px;
         height: 30px
@@ -483,13 +491,17 @@
         background: var(--darkest-background-element) !important;
     }
     .mwe-popups .mwe-popups-container { /* Link popout */
-        background: #282828
+        background: var(--link-popout-background);
+    }
+    .mwe-popups {
+        background: transparent;
+        box-shadow: 0 30px 90px -20px rgba(0,0,0,0.3) !important;
     }
     .mwe-popups .mwe-popups-extract[dir="ltr"]::after { /* Fix popout gradient */
-        background-image: linear-gradient(to right,rgba(49,62,89,0),#282828 50%) !important
+        background-image: linear-gradient(to right,rgba(49,62,89,0),var(--link-popout-background) 50%) !important
     }
     .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet:hover { /* Settings button */
-        background-color: #494B4E
+        background-color: var(--link-popout-settings)
     }
     .mw-parser-output .tut-browse li a { /* Tutorial page */
         border-radius: 0px;
