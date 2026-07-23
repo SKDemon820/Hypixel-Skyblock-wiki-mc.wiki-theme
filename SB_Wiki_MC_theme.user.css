@@ -214,7 +214,8 @@
         border-bottom: 3px solid var(--accent-color-dark);
         border-radius: 0px;
         margin: 1px 2px 0;
-        text-shadow: 2px 2px 0 var(--accent-color-dark)
+        text-shadow: 2px 2px 0 var(--accent-color-dark);
+        font-size: 120%;
     }
     .infobox-header {
         text-shadow: 2px 2px 0 var(--accent-color-dark)
@@ -372,6 +373,10 @@
     }
     .vector-menu-tabs-legacy li a, #p-cactions-label { /* Fix text centering */
         padding-top: .5em
+    }
+    .vector-menu-tabs-legacy li a { /* Make text white and bold */
+        font-weight: bold;
+        color: var(--color-base) !important;
     }
     .vector-menu-tabs .mw-watchlink.icon a::before {
         top: .5em;
